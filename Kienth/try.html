@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        html, body {
+            scroll-behavior: smooth;
+        }
+
+        .background {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #222235;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #27273c;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: #ff5722;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .card {
+            width: 90%;
+            max-width: 700px;
+            background: #1e1e30;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card .img img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .skills {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .skill ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            padding: 0;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .skill li {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        button, input, textarea {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                position: absolute;
+                right: 20px;
+                top: 10px;
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                display: none;
+                background: #27273c;
+                position: absolute;
+                width: 100%;
+                top: 40px;
+                left: 0;
+                padding: 10px 0;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 90%;
+            }
+
+            .skills h1, .contact h1 {
+                font-size: 18px;
+            }
+
+            .skill ul {
+                grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <span class="hamburger">☰</span>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="background">
+        <div class="card">
+            <div class="card-border-top"></div>
+            <div class="card-content">
+                <div class="img">
+                    <img src="profile.jpg" alt="Profile Picture">
+                </div>
+                <div class="text-content">
+                    <span>Your Name</span>
+                    <p class="title">Web Developer</p>
+                    <p class="desc">Passionate about coding and creating stunning web applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="bout-title">About Me</h2>
+        <p>I'm a web developer with a passion for building modern and responsive web applications.</p>
+    </section>
+
+    <section id="skills" class="skills">
+        <h1>Skills</h1>
+        <ul class="skill">
+            <li class="html"><a><i class="fab fa-html5"></i></a></li>
+            <li class="css"><a><i class="fab fa-css3-alt"></i></a></li>
+            <li class="js"><a><i class="fab fa-js"></i></a></li>
+        </ul>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact_2">
+            <h1>Contact Me</h1>
+            <form>
+                <label>Name:</label>
+                <input type="text" required>
+                <label>Email:</label>
+                <input type="email" required>
+                <label>Message:</label>
+                <textarea required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector(".hamburger").addEventListener("click", function() {
+            document.querySelector(".navbar ul").classList.toggle("active");
+        });
+    </script>
+</body>
+</html>
